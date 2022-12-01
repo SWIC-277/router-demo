@@ -4,13 +4,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Contact from "./routes/contact";
 import Error from "./routes/Error";
-import Home from "./routes/Home";
+import Home, { preload as preloadHome } from "./routes/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
     errorElement: <Error />,
+    loader: preloadHome,
     children: [
       {
         path: "/contacts/:id",
